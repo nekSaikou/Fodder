@@ -172,6 +172,7 @@ constexpr MoveScore QUIET_CAP = NOISY_SCORE - 1;
 constexpr MoveScore KILLER_0 = 90'000'000;
 constexpr MoveScore KILLER_1 = 80'000'000;
 
+constexpr MoveScore BAD_CAPTURE = -90'000'000;
 constexpr MoveScore BAD_PROMOTION = -200'000'000;
 
 constexpr MoveScore HISTORY_MAX = 32768;

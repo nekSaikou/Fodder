@@ -17,9 +17,14 @@ void scoreMoves(Position &pos, SearchData &sd, MoveList &ml, uint16_t bestMove) 
           : pos.pieceOnSQ(mv.getTo());
 
         if (mv.isCapture()) {
-          // Bad captures get ordered last
-          if (!staticExchangeEval(pos, mv, -205))
-            score -= 2 * NOISY_SCORE;
+          // Slightly bad captures get ordered before quiet moves
+          if (!staticExchangeEval(pos, mv, 0)) {
+            score += BAD_CAPTURE;
+
+            // Really bad captures get ordered last
+            if (!staticExchangeEval(pos, mv, -205))
+              score += BAD_CAPTURE;
+          }
 
           // Most valuable victim, least valuable attacker
           score += MVV_LVA[target][mv.getPiece()];

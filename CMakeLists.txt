@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.25)
 
 project(
   Fodder
-  VERSION 0.2
+  VERSION 1.0
   LANGUAGES CXX
   )
 
@@ -17,7 +17,7 @@ file(GLOB_RECURSE SRC_FILES
 
 add_compile_definitions(
   RELEASE_BUILD
-  VERSION_NUMBER=${CMAKE_PROJECT_VERSION}
+  VERSION_NUMBER="1.0"
   )
 
 add_compile_options(
